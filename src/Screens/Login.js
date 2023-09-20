@@ -32,7 +32,7 @@ export default (props) => {
             <Text style={styles.textLink}>Registre-se</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Tabs")}>
           <Text style={styles.btn}>Entrar</Text>
         </TouchableOpacity>
       </View>
