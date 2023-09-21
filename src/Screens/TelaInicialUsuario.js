@@ -10,13 +10,13 @@ import Calorias from "../../assets/images/icon_rel_calorias.png";
 import EstadoEmocinalPerc from "../../assets/images/icon_rel_perc_emocional.png";
 import EstadoEmocinal from "../../assets/images/icon_rel_est_emocional.png";
 
-export default () => {
+export default (props) => {
   return (
     <ScrollView>
       <View>
         <View style={styles.container}>
           <Text style={styles.text}>Início</Text>
-          <TouchableOpacity onPress={() => props.navigation.navigate("")}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil")}>
             <Image source={User} />
           </TouchableOpacity>
         </View>
@@ -25,7 +25,9 @@ export default () => {
         </View>
         <View style={styles.container_conteudo_geral}>
           <Text style={styles.text_subtitulo}>Olá! UserName</Text>
-          <TouchableOpacity onPress={() => props.navigation.navigate("")}>
+          <TouchableOpacity
+            onPress={() => props.navigation.navigate("CadastroAtividades")}
+          >
             <Image source={New} />
           </TouchableOpacity>
         </View>
