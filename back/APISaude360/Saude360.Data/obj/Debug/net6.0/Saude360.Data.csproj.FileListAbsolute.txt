@@ -1,0 +1,17 @@
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.csproj.AssemblyReference.cache
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.AssemblyInfoInputs.cache
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.AssemblyInfo.cs
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.csproj.CoreCompileInputs.cache
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\bin\Debug\net6.0\Saude360.Data.deps.json
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\bin\Debug\net6.0\Saude360.Data.runtimeconfig.json
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\bin\Debug\net6.0\Saude360.Data.dll
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\bin\Debug\net6.0\Saude360.Data.pdb
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\bin\Debug\net6.0\Saude360.Domain.dll
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\bin\Debug\net6.0\Saude360.Domain.pdb
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.csproj.CopyComplete
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.dll
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\refint\Saude360.Data.dll
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.pdb
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\Saude360.Data.genruntimeconfig.cache
+C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Data\obj\Debug\net6.0\ref\Saude360.Data.dll

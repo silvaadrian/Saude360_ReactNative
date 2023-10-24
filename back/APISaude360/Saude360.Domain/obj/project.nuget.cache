@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cBuWAMvLqAOe7MS0LzbvPS/OWAh8XAD5sfElH/wie/ICpF1+poK10jDFI6IeFjXItw2VnXznjSZv0oWcz9BWzg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\adriansilva\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\adriansilva\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

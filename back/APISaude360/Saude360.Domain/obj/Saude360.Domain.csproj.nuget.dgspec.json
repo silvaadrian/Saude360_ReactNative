@@ -1,0 +1,72 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj",
+        "projectName": "Saude360.Domain",
+        "projectPath": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj",
+        "packagesPath": "C:\\Users\\adriansilva\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\adriansilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "System.ComponentModel.Annotations": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.318\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
