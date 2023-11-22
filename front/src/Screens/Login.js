@@ -27,7 +27,11 @@ export default (props) => {
         Alert.alert(
           `Olá, ${response.data.usuarioNome}`,
           response.data.mensagem,
-          props.navigation.navigate('TelaInicialUsuario', { userData: response.data })
+          [{
+            text: 'OK',
+            onPress: () => props.navigation.navigate('TelaInicialUsuario', { userData: response.data }),
+          },
+          ]
         );
       }
     } catch (error) {
@@ -35,13 +39,20 @@ export default (props) => {
         if (error.response && error.response.data && error.response.data.errors) {
           const errorDetails = error.response.data.errors;
           const errorMessage = Object.keys(errorDetails)
-            .map((field) => `${field}: ${errorDetails[field].join(', ')}`)
+            .map((field) => `${errorDetails[field].join(', ')}`)
             .join('\n');
 
-          Alert.alert(
-            'Falha na Autenticação',
-            errorMessage,
-          );
+          if (errorMessage === 'A senha deve ter pelo menos 8 caracteres') {
+            Alert.alert(
+              'Falha na Autenticação',
+              'E-mail e/ou Senha Inválidos'
+            );
+          } else {
+            Alert.alert(
+              'Falha na Autenticação',
+              errorMessage,
+            );
+          }
         } else if (error.response.status === 401) {
           Alert.alert(
             'Falha na Autenticação',
@@ -49,9 +60,15 @@ export default (props) => {
           );
         }
       } else if (error.request) {
-        console.error("Erro na solicitação de autenticação:", error.request);
+        Alert.alert(
+          'Erro na solicitação de autenticação:',
+          error.request
+        );
       } else {
-        console.error("Erro na solicitação de autenticação:", error.message);
+        Alert.alert(
+          'Erro na solicitação de autenticação:',
+          error.message
+        );
       }
     } finally {
       setLoading(false);

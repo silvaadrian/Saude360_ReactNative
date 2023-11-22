@@ -6,7 +6,8 @@ namespace Saude360.Domain.Interfaces.Servicos
     {
 
         Task<Usuario> Cadastrar(Usuario usuario);
-
+        Task<Usuario> Alterar(Usuario usuario);
         Task<Usuario> Autenticar(string email, string senha);
+        Task<Usuario> Recuperar(int id);
     }
 }

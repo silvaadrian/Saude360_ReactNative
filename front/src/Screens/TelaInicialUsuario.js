@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, TouchableOpacity, Image, ScrollView, Alert } from "react-native";
 import { styles } from "../../assets/css/style.telaInicialUsuario";
 import User from "../../assets/images/user.png";
 import New from "../../assets/images/btn_novo_rastreamento.png";
@@ -9,16 +9,43 @@ import Refeicao from "../../assets/images/icon_rel_refeicao.png";
 import Calorias from "../../assets/images/icon_rel_calorias.png";
 import EstadoEmocinalPerc from "../../assets/images/icon_rel_perc_emocional.png";
 import EstadoEmocinal from "../../assets/images/icon_rel_est_emocional.png";
+import api from "../../services/Api";
 
 export default (props) => {
   const userData = props.route.params?.userData;
+  const [userDados, setUserDados] = useState(null);
+
+  const recuperar = async () => {
+    try {
+      const response = await api.get(`/Usuario/Recuperar?id=${userData?.usuarioId}`);
+      setUserDados(response.data);
+    } catch (error) {
+      Alert.alert(
+        'Falha ao Recuperar Usuário:',
+        error.message || 'Erro desconhecido'
+      );
+    }
+  }
+
+  useEffect(() => {
+    const onFocusListener = props.navigation.addListener('focus', () => {
+      recuperar();
+    });
+
+    return () => {
+      onFocusListener();
+    };
+  }, [props.navigation, userData?.usuarioId]);
+
 
   return (
     <ScrollView>
       <View>
         <View style={styles.container}>
-          <Text style={styles.text}>Início</Text>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil")}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("TelaInicialUsuario", { userDados })}>
+            <Text style={styles.text}>Início</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil", { userDados })}>
             <Image source={User} />
           </TouchableOpacity>
         </View>
@@ -26,9 +53,9 @@ export default (props) => {
           <Text style={styles.text}>Rastreamento Diário</Text>
         </View>
         <View style={styles.container_conteudo_geral}>
-          <Text style={styles.text_subtitulo}>Olá! {userData?.usuarioNome}</Text>
+          <Text style={styles.text_subtitulo}>Olá! {userDados?.usuarioNome}</Text>
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("CadastroAtividades")}
+            onPress={() => props.navigation.navigate("CadastroAtividades", { userDados })}
           >
             <Image source={New} />
           </TouchableOpacity>

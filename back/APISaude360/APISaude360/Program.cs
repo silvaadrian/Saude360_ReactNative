@@ -13,6 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IUsuarioRepo, UsuarioRepo>();
 builder.Services.AddScoped<IUsuarioServico, UsuarioServico>();
+
+builder.Services.AddScoped<IAtividadeFisicaRepo, AtividadeFisicaRepo>();
+builder.Services.AddScoped<IAtividadeFisicaServico, AtividadeFisicaServico>();
+
 builder.Services.AddScoped<IGeralRepo, GeralRepo>();
 
 builder.Services.AddDbContext<DataContexto>();

@@ -1,16 +1,42 @@
-import React from "react";
-import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, TouchableOpacity, Image, ScrollView, Alert } from "react-native";
 import { styles } from "../../assets/css/style.cadastroAtividades";
 import User from "../../assets/images/user.png";
 import Logo from "../../assets/images/logo_tela_login.png";
+import api from "../../services/Api";
 
 export default (props) => {
+  const userDados = props.route.params?.userDados;
+  const [userData, setUserData] = useState(null);
+
+  const recuperar = async () => {
+    try {
+      const response = await api.get(`/Usuario/Recuperar?id=${userDados?.usuarioId}`);
+      setUserData(response.data);
+    } catch (error) {
+      Alert.alert(
+        'Falha ao Recuperar Usuário:',
+        error.message || 'Erro desconhecido'
+      );
+    }
+  }
+
+  useEffect(() => {
+    const onFocusListener = props.navigation.addListener('focus', () => {
+      recuperar();
+    });
+
+    return () => {
+      onFocusListener();
+    };
+  }, [props.navigation, userDados?.usuarioId]);
+
   return (
     <ScrollView>
       <View>
         <View style={styles.container}>
-          <Text style={styles.text}>UserName</Text>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil")}>
+          <Text style={styles.text}>{userData?.usuarioNome || ''}</Text>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil", { userDados })}>
             <Image source={User} />
           </TouchableOpacity>
         </View>
@@ -23,7 +49,7 @@ export default (props) => {
         <View style={styles.container_card}>
           <TouchableOpacity
             onPress={() =>
-              props.navigation.navigate("CadastroAtividadesFisica")
+              props.navigation.navigate("CadastroAtividadesFisica", { userData })
             }
           >
             <View style={styles.container_conteudo_titulo_card1}>

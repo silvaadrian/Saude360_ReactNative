@@ -14,10 +14,12 @@ namespace Saude360.Data.Contexto
         }
 
         public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<AtividadeFisica> AtividadesFisicas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UsuarioMapa());
+            modelBuilder.ApplyConfiguration(new AtividadeFisicaMapa());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -19,6 +19,38 @@ namespace APISaude360.Migrations
                 .HasAnnotation("ProductVersion", "7.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("Saude360.Domain.Entidades.AtividadeFisica", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("dataCriacao");
+
+                    b.Property<string>("Duracao")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("duracao");
+
+                    b.Property<int>("Intensidade")
+                        .HasColumnType("int")
+                        .HasColumnName("intensidade");
+
+                    b.Property<string>("TipoExercicio")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("tipoExercicio");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AtividadeFisica", (string)null);
+                });
+
             modelBuilder.Entity("Saude360.Domain.Entidades.Usuario", b =>
                 {
                     b.Property<int>("Id")
@@ -37,11 +69,13 @@ namespace APISaude360.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("nome");
 
                     b.Property<string>("Senha")
                         .IsRequired()
+                        .HasMaxLength(50)
                         .HasColumnType("varchar(128)")
                         .HasColumnName("senha");
 

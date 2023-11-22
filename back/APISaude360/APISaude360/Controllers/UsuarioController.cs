@@ -33,6 +33,50 @@ namespace APISaude360.Controllers
             }
         }
 
+        [HttpGet("Recuperar")]
+        public async Task<IActionResult> Get(int id)
+        {
+            try
+            {
+                var modelUsuario = await _usuarioServico.Recuperar(id);
+                if (modelUsuario == null) { return NoContent(); }
+
+                return Ok(new
+                {
+                    usuarioId = modelUsuario.Id,
+                    usuarioNome = modelUsuario.Nome,
+                    usuarioEmail = modelUsuario.Email,
+                });
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Usuário: {ex.Message}");
+            }
+        }
+
+        [HttpPut("Alterar")]
+        public async Task<IActionResult> Put(Usuario usuario)
+        {
+            try
+            {
+                var modelUsuario = await _usuarioServico.Alterar(usuario);
+                if (modelUsuario == null) { return NoContent(); }
+
+                return Ok(new
+                {
+                    Status = true,
+                    Mensagem = "Alteração Realizada!",
+                    usuarioId = modelUsuario.Id,
+                    usuarioNome = modelUsuario.Nome,
+                    usuarioEmail = modelUsuario.Email,
+                });
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Alterar Usuário: {ex.Message}");
+            }
+        }
+
 
         [HttpPost("Autenticar")]
         public async Task<IActionResult> Login(Usuario usuario)

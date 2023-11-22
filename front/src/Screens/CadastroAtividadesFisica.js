@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -9,9 +9,14 @@ import {
 } from "react-native";
 import { styles } from "../../assets/css/style.cadastroAtividadesFisica";
 import User from "../../assets/images/user.png";
+import api from "../../services/Api";
+
+
 
 const IntensitySelector = ({ selectedIntensity, onSelectIntensity }) => {
   const intensities = [1, 2, 3, 4, 5];
+
+
 
   return (
     <View style={styles.intensitySelector}>
@@ -34,6 +39,34 @@ const IntensitySelector = ({ selectedIntensity, onSelectIntensity }) => {
   );
 };
 export default (props) => {
+  const userData = props.route.params?.userData;
+  const [userDados, setUserDados] = useState(null);
+  const [tipoExercicio, setTipoExercicio] = useState('');
+  const [duracao, setDuracao] = useState('');
+  const [intensidade, setIntensidade] = useState('');
+
+  const recuperar = async () => {
+    try {
+      const response = await api.get(`/Usuario/Recuperar?id=${userData?.usuarioId}`);
+      setUserDados(response.data);
+    } catch (error) {
+      Alert.alert(
+        'Falha ao Recuperar Usuário:',
+        error.message || 'Erro desconhecido'
+      );
+    }
+  }
+
+  useEffect(() => {
+    const onFocusListener = props.navigation.addListener('focus', () => {
+      recuperar();
+    });
+
+    return () => {
+      onFocusListener();
+    };
+  }, [props.navigation, userData?.usuarioId]);
+
   const [selectedIntensity, setSelectedIntensity] = useState(1);
 
   const handleIntensityChange = (intensity) => {
@@ -43,8 +76,8 @@ export default (props) => {
     <ScrollView>
       <View>
         <View style={styles.container}>
-          <Text style={styles.text}>UserName</Text>
-          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil")}>
+          <Text style={styles.text}>{userDados?.usuarioNome || ''}</Text>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Perfil", { userDados })}>
             <Image source={User} />
           </TouchableOpacity>
         </View>

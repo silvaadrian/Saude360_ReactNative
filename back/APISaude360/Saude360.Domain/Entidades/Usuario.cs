@@ -5,7 +5,7 @@ namespace Saude360.Domain.Entidades
     public class Usuario
     {
         public int Id { get; set; }
-        [MaxLength(50, ErrorMessage = "o Nome não pode ter mais de 50 caracteres")]
+        [MaxLength(50, ErrorMessage = "O Nome não pode ter mais de 50 caracteres")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "O campo Email é obrigatório.")]
         [EmailAddress(ErrorMessage = "O campo Email não está em um formato de e-mail válido.")]
