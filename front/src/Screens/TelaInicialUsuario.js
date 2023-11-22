@@ -11,6 +11,8 @@ import EstadoEmocinalPerc from "../../assets/images/icon_rel_perc_emocional.png"
 import EstadoEmocinal from "../../assets/images/icon_rel_est_emocional.png";
 
 export default (props) => {
+  const userData = props.route.params?.userData;
+
   return (
     <ScrollView>
       <View>
@@ -24,7 +26,7 @@ export default (props) => {
           <Text style={styles.text}>Rastreamento Diário</Text>
         </View>
         <View style={styles.container_conteudo_geral}>
-          <Text style={styles.text_subtitulo}>Olá! UserName</Text>
+          <Text style={styles.text_subtitulo}>Olá! {userData?.usuarioNome}</Text>
           <TouchableOpacity
             onPress={() => props.navigation.navigate("CadastroAtividades")}
           >

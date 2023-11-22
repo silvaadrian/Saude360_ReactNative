@@ -10,3 +10,15 @@ C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saud
 C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.pdb
 C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\ref\Saude360.Domain.dll
 C:\Users\adriansilva\Documents\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.csproj.AssemblyReference.cache
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\bin\Debug\net6.0\Saude360.Domain.deps.json
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\bin\Debug\net6.0\Saude360.Domain.dll
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\bin\Debug\net6.0\Saude360.Domain.pdb
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.csproj.AssemblyReference.cache
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.AssemblyInfoInputs.cache
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.AssemblyInfo.cs
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.dll
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\refint\Saude360.Domain.dll
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\Saude360.Domain.pdb
+C:\Users\adria\OneDrive\Documentos\GitHub\Saude360_ReactNative\back\APISaude360\Saude360.Domain\obj\Debug\net6.0\ref\Saude360.Domain.dll

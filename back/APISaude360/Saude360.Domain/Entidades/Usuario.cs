@@ -10,7 +10,7 @@ namespace Saude360.Domain.Entidades
         [Required(ErrorMessage = "O campo Email é obrigatório.")]
         [EmailAddress(ErrorMessage = "O campo Email não está em um formato de e-mail válido.")]
         public string Email { get; set; }
-        [Required]
+        [Required(ErrorMessage = "O campo Senha é obrigatório.")]
         [MinLength(8, ErrorMessage = "A senha deve ter pelo menos 8 caracteres")]
         [MaxLength(50, ErrorMessage = "A senha não pode ter mais de 50 caracteres")]
         public string Senha { get; set; }

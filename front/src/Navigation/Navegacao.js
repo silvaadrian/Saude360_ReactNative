@@ -116,6 +116,7 @@ export default () => {
       <stack.Screen name="Cadastro" component={Cadastro}></stack.Screen>
       <stack.Screen name="Perfil" component={Perfil}></stack.Screen>
       <stack.Screen name="Desafio" component={Desafio}></stack.Screen>
+      <stack.Screen name="TelaInicialUsuario" component={TelaInicialUsuario}></stack.Screen>
       <stack.Screen
         name="CadastroAtividadeAlimentacao"
         component={CadastroAtividadeAlimentacao}
