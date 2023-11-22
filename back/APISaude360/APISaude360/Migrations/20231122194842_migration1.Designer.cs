@@ -11,8 +11,8 @@ using Saude360.Data.Contexto;
 namespace APISaude360.Migrations
 {
     [DbContext(typeof(DataContexto))]
-    [Migration("20231122185258_novoBanco2211")]
-    partial class novoBanco2211
+    [Migration("20231122194842_migration1")]
+    partial class migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,7 +49,12 @@ namespace APISaude360.Migrations
                         .HasColumnType("varchar(50)")
                         .HasColumnName("tipoExercicio");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("AtividadeFisica", (string)null);
                 });
@@ -79,12 +84,28 @@ namespace APISaude360.Migrations
                     b.Property<string>("Senha")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("varchar(128)")
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("senha");
 
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios", (string)null);
+                });
+
+            modelBuilder.Entity("Saude360.Domain.Entidades.AtividadeFisica", b =>
+                {
+                    b.HasOne("Saude360.Domain.Entidades.Usuario", "Usuario")
+                        .WithMany("AtividadesFisicas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Saude360.Domain.Entidades.Usuario", b =>
+                {
+                    b.Navigation("AtividadesFisicas");
                 });
 #pragma warning restore 612, 618
         }
