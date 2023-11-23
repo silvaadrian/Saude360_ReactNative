@@ -17,7 +17,7 @@ namespace Saude360.Data.Mapeamentos
             builder.Property(u => u.Id).HasColumnName("id");
             builder.Property(u => u.Nome).HasColumnType("varchar(50)").HasColumnName("nome");
             builder.Property(u => u.Email).HasColumnType("varchar(100)").HasColumnName("email");
-            builder.Property(u => u.Senha).HasColumnType("varchar(128)").HasColumnName("senha");
+            builder.Property(u => u.Senha).HasColumnType("varchar(255)").HasColumnName("senha");
             builder.Property(u => u.DataCriacao).HasColumnName("dataCriacao");
         }
     }

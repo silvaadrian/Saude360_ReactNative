@@ -14,11 +14,25 @@ import api from "../../services/Api";
 export default (props) => {
   const userData = props.route.params?.userData;
   const [userDados, setUserDados] = useState(null);
+  const [userUltimaAlimentacao, setUserUltimaAlimentacao] = useState(null);
+  const [userUltimaAtividade, setUserUltimaAtividade] = useState(null);
+  const [userUltimoEstadoEmocional, setUltimoEstadoEmocional] = useState(null);
 
   const recuperar = async () => {
     try {
       const response = await api.get(`/Usuario/Recuperar?id=${userData?.usuarioId}`);
       setUserDados(response.data);
+
+      const responseAlimentacao = await api.get(`/Alimentacao/RecuperarAlimentacaoUsuario?id=${userData?.usuarioId}`);
+      setUserUltimaAlimentacao(responseAlimentacao.data);
+
+      const responseAtividade = await api.get(`/AtividadeFisica/RecuperarAtividadeUsuario?id=${userData?.usuarioId}`);
+      setUserUltimaAtividade(responseAtividade.data);
+
+      const responseEstadoEmocional = await api.get(`/EstadoEmocional/RecuperarEstadoEmocionalUsuario?id=${userData?.usuarioId}`);
+      setUltimoEstadoEmocional(responseEstadoEmocional.data);
+
+
     } catch (error) {
       Alert.alert(
         'Falha ao Recuperar Usuário:',
@@ -68,17 +82,21 @@ export default (props) => {
         </View>
         <View style={styles.container_card}>
           <View style={styles.card_1}>
-            <Text style={styles.text_card}>
+            <Text style={styles.text_subtitulo}>
               Intensidade
               <Image style={styles.image_cards} source={Intensidade} />
             </Text>
-            <Text style={styles.text_subtitulo}>Intenso</Text>
+            <Text style={styles.text_card}>{userUltimaAtividade?.intensidade > 3
+              ? "Intenso"
+              : userUltimaAtividade?.intensidade === 3
+                ? "Moderado"
+                : "Leve"}</Text>
           </View>
           <View style={styles.card_2}>
-            <Text style={styles.text_card}>
+            <Text style={styles.text_subtitulo}>
               Duração <Image style={styles.image_cards} source={Duracao} />
             </Text>
-            <Text style={styles.text_subtitulo}>2h</Text>
+            <Text style={styles.text_card}>{userUltimaAtividade?.duracao}</Text>
           </View>
         </View>
         <View style={styles.container_conteudo_titulo_card_2}>
@@ -86,17 +104,17 @@ export default (props) => {
         </View>
         <View style={styles.container_card}>
           <View style={styles.card_3}>
-            <Text style={styles.text_card}>
+            <Text style={styles.text_subtitulo}>
               Refeição
               <Image style={styles.image_cards} source={Refeicao} />
             </Text>
-            <Text style={styles.text_subtitulo}>Almoço</Text>
+            <Text style={styles.text_card}>{userUltimaAlimentacao?.refeicao}</Text>
           </View>
           <View style={styles.card_4}>
-            <Text style={styles.text_card}>
-              Calorias <Image style={styles.image_cards} source={Calorias} />
+            <Text style={styles.text_subtitulo}>
+              Consumiu<Image style={styles.image_cards} source={Calorias} />
             </Text>
-            <Text style={styles.text_subtitulo}>1200kcal</Text>
+            <Text style={styles.text_card}>{userUltimaAlimentacao?.alimentosConsumidos}</Text>
           </View>
         </View>
         <View style={styles.container_conteudo_titulo_card_3}>
@@ -104,18 +122,18 @@ export default (props) => {
         </View>
         <View style={styles.container_card}>
           <View style={styles.card_5}>
-            <Text style={styles.text_card}>
+            <Text style={styles.text_subtitulo}>
               Estado Emocional
               <Image style={styles.image_cards} source={EstadoEmocinal} />
             </Text>
-            <Text style={styles.text_subtitulo}>Tranquilo</Text>
+            <Text style={styles.text_card}>{userUltimoEstadoEmocional?.estado}</Text>
           </View>
           <View style={styles.card_6}>
-            <Text style={styles.text_card}>
-              % do emocional{" "}
+            <Text style={styles.text_subtitulo}>
+              Sentimentos
               <Image style={styles.image_cards} source={EstadoEmocinalPerc} />
             </Text>
-            <Text style={styles.text_subtitulo}>80%</Text>
+            <Text style={styles.text_card}>{userUltimoEstadoEmocional?.sobreEmocoes}</Text>
           </View>
         </View>
       </View>

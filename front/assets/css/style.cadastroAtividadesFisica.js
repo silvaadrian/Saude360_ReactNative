@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
   },
   divButton: {
     width: "50%",
-    marginLeft: "40%",
+    marginLeft: "20%",
     marginTop: 20,
     justifyContent: "center",
     alignItems: "center",

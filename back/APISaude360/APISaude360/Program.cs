@@ -17,6 +17,12 @@ builder.Services.AddScoped<IUsuarioServico, UsuarioServico>();
 builder.Services.AddScoped<IAtividadeFisicaRepo, AtividadeFisicaRepo>();
 builder.Services.AddScoped<IAtividadeFisicaServico, AtividadeFisicaServico>();
 
+builder.Services.AddScoped<IAlimentacaoRepo, AlimentacaoRepo>();
+builder.Services.AddScoped<IAlimentacaoServico, AlimentacaoServico>();
+
+builder.Services.AddScoped<IEstadoEmocionalRepo, EstadoEmocionalRepo>();
+builder.Services.AddScoped<IEstadoEmocionalServico, EstadoEmocionalServico>();
+
 builder.Services.AddScoped<IGeralRepo, GeralRepo>();
 
 builder.Services.AddDbContext<DataContexto>();

@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   TextInput,
+  Alert,
 } from "react-native";
 import { styles } from "../../assets/css/style.cadastroAtividadesFisica";
 import User from "../../assets/images/user.png";
@@ -44,6 +45,7 @@ export default (props) => {
   const [tipoExercicio, setTipoExercicio] = useState('');
   const [duracao, setDuracao] = useState('');
   const [intensidade, setIntensidade] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const recuperar = async () => {
     try {
@@ -54,6 +56,67 @@ export default (props) => {
         'Falha ao Recuperar Usuário:',
         error.message || 'Erro desconhecido'
       );
+    }
+  }
+
+  const cadastrar = async (tipoExercicio, duracao, intensidade) => {
+    try {
+      let hojeDate = new Date();
+      hojeDate = hojeDate.toISOString();
+
+      if (intensidade === '') {
+        intensidade = 1;
+      }
+
+      const data = {
+        id: 0,
+        tipoExercicio: tipoExercicio,
+        duracao: duracao,
+        intensidade: parseInt(intensidade),
+        usuarioId: userData?.usuarioId,
+        dataCriacao: hojeDate
+      };
+
+      const response = await api.post(`/AtividadeFisica/Cadastrar`, data);
+
+      if (response.status === 200) {
+        Alert.alert(
+          'Cadastro realizado com sucesso',
+          '',
+          [{
+            text: 'OK',
+            onPress: () => props.navigation.navigate('TelaInicialUsuario', { userData }),
+          },
+          ]
+        );
+      }
+    } catch (error) {
+      if (error.response) {
+        if (error.response.status === 400) {
+          if (error.response.data && error.response.data.errors) {
+            const errorMessage = Object.keys(error.response.data.errors)
+              .map(field => {
+                const errorMessages = error.response.data.errors[field].join('\n');
+                return `${errorMessages}`;
+              })
+              .join('\n');
+
+            Alert.alert(
+              'Falha ao Cadastrar',
+              errorMessage
+            );
+          }
+        }
+
+        if (error.response.status === 500) {
+          Alert.alert(
+            'Falha ao Cadastrar',
+            error.response.data
+          );
+        }
+      }
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -71,6 +134,7 @@ export default (props) => {
 
   const handleIntensityChange = (intensity) => {
     setSelectedIntensity(intensity);
+    setIntensidade(intensity);
   };
   return (
     <ScrollView>
@@ -90,7 +154,7 @@ export default (props) => {
         <View style={styles.container_card}>
           <TouchableOpacity
             onPress={() =>
-              props.navigation.navigate("CadastroAtividadesFisica")
+              props.navigation.navigate("CadastroAtividadesFisica", { userData })
             }
           >
             <View style={styles.container_conteudo_titulo_card1}>
@@ -99,7 +163,7 @@ export default (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
-              props.navigation.navigate("CadastroAtividadeAlimentacao")
+              props.navigation.navigate("CadastroAtividadeAlimentacao", { userData })
             }
           >
             <View style={styles.container_conteudo_titulo_card2}>
@@ -107,7 +171,7 @@ export default (props) => {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("CadastroAtividadeEmocao")}
+            onPress={() => props.navigation.navigate("CadastroAtividadeEmocao", { userData })}
           >
             <View style={styles.container_conteudo_titulo_card3}>
               <Text style={styles.text_subtitulo}>Emoções</Text>
@@ -117,16 +181,24 @@ export default (props) => {
         <View style={styles.img_fundo}>
           <View style={styles.divEstilo}>
             <Text>Tipo de exercício:</Text>
-            <TextInput style={styles.textInput}></TextInput>
+            <TextInput style={styles.textInput}
+              value={tipoExercicio}
+              onChangeText={(text) => setTipoExercicio(text)}>
+            </TextInput>
             <Text>Duração:</Text>
-            <TextInput style={styles.textInput}></TextInput>
+            <TextInput style={styles.textInput}
+              value={duracao}
+              onChangeText={(text) => setDuracao(text)}>
+            </TextInput>
             <IntensitySelector
               selectedIntensity={selectedIntensity}
               onSelectIntensity={handleIntensityChange}
             />
             <View style={styles.divButton}>
               <TouchableOpacity>
-                <Text style={styles.btn_txt}>Registrar</Text>
+                <Text style={styles.btn_txt} onPress={() => { setLoading(true); cadastrar(tipoExercicio, duracao, intensidade) }}>
+                  {loading ? "Carregando..." : "Registrar"}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

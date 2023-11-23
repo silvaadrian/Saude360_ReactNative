@@ -10,5 +10,6 @@ namespace Saude360.Domain.Interfaces.Repositorios
     public interface IAtividadeFisicaRepo : IGeralRepo
     {
         public Task<AtividadeFisica> PegaPorIdAsync(int id);
+        public Task<AtividadeFisica> PegaPorUsuarioAsync(int id);
     }
 }

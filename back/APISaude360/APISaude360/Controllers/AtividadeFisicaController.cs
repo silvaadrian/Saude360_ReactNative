@@ -48,5 +48,21 @@ namespace APISaude360.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Atividade: {ex.Message}");
             }
         }
+
+        [HttpGet("RecuperarAtividadeUsuario")]
+        public async Task<IActionResult> GetAtividadeUsuario(int id)
+        {
+            try
+            {
+                var modelAtivFisica = await _ativFisicaServico.RecuperarAtividadeUsuario(id);
+                if (modelAtivFisica == null) { return NoContent(); }
+
+                return Ok(modelAtivFisica);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Atividade: {ex.Message}");
+            }
+        }
     }
 }

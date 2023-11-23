@@ -13,7 +13,7 @@ namespace Saude360.Domain.Entidades
         public string Duracao { get; set; }
         [Required(ErrorMessage = "Necessário informar Intensidade do exercício")]
         public int Intensidade { get; set; }
-        public Usuario Usuario { get; set; }
+        public int UsuarioId { get; set; }  
         public DateTime DataCriacao { get; set; }
 
         public AtividadeFisica()
@@ -21,12 +21,13 @@ namespace Saude360.Domain.Entidades
             DataCriacao = DateTime.Now;
         }
 
-        public AtividadeFisica(int id, string tipoExercicio, string duracao, int intensidade) : this()
+        public AtividadeFisica(int id, string tipoExercicio, string duracao, int intensidade, int usuarioId) : this()
         {
             Id = id;
             TipoExercicio = tipoExercicio;
             Duracao = duracao;
             Intensidade = intensidade;
+            UsuarioId = usuarioId;
         }
     }
 }

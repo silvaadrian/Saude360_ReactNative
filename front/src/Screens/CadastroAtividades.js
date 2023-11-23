@@ -58,7 +58,7 @@ export default (props) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
-              props.navigation.navigate("CadastroAtividadeAlimentacao")
+              props.navigation.navigate("CadastroAtividadeAlimentacao", { userData })
             }
           >
             <View style={styles.container_conteudo_titulo_card2}>
@@ -66,7 +66,7 @@ export default (props) => {
             </View>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => props.navigation.navigate("CadastroAtividadeEmocao")}
+            onPress={() => props.navigation.navigate("CadastroAtividadeEmocao", { userData })}
           >
             <View style={styles.container_conteudo_titulo_card3}>
               <Text style={styles.text_subtitulo}>Emoções</Text>

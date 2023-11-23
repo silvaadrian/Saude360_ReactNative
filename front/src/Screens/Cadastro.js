@@ -62,7 +62,6 @@ export default (props) => {
           );
         }
       }
-      console.error(error);
     } finally {
       setLoading(false);
     }

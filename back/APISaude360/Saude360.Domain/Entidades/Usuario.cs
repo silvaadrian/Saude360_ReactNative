@@ -12,7 +12,7 @@ namespace Saude360.Domain.Entidades
         public string Email { get; set; }
         [Required(ErrorMessage = "O campo Senha é obrigatório.")]
         [MinLength(8, ErrorMessage = "A senha deve ter pelo menos 8 caracteres")]
-        [MaxLength(50, ErrorMessage = "A senha não pode ter mais de 50 caracteres")]
+        [MaxLength(255, ErrorMessage = "A senha não pode ter mais de 50 caracteres")]
         public string Senha { get; set; }
         public DateTime DataCriacao { get; set; }
 
