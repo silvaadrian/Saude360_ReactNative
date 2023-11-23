@@ -40,5 +40,16 @@ namespace Saude360.Data.Repositorios
 
             return await query.FirstOrDefaultAsync();
         }
+
+        public async Task<AtividadeFisica[]> PegaTodasPorUsuarioAsync(int id)
+        {
+            IQueryable<AtividadeFisica> query = _contexto.AtividadesFisicas;
+
+            query = query.AsNoTracking()
+                         .OrderByDescending(u => u.Id)
+                         .Where(u => u.UsuarioId == id);
+
+            return await query.ToArrayAsync();
+        }
     }
 }

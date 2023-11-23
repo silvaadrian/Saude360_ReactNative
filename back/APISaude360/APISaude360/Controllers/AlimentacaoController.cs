@@ -64,5 +64,21 @@ namespace APISaude360.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Alimentação: {ex.Message}");
             }
         }
+
+        [HttpGet("RecuperarTodasAlimentacaoUsuario")]
+        public async Task<IActionResult> GetTodasAlimentacaoUsuario(int id)
+        {
+            try
+            {
+                var modelAlimentacao = await _alimentacaoServico.RecuperarTodasAtividades(id);
+                if (modelAlimentacao == null) { return NoContent(); }
+
+                return Ok(modelAlimentacao);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Alimentação: {ex.Message}");
+            }
+        }
     }
 }

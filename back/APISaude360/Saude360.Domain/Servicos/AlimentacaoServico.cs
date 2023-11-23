@@ -74,5 +74,23 @@ namespace Saude360.Domain.Servicos
             }
         }
 
+        public async Task<Alimentacao[]> RecuperarTodasAtividades(int id)
+        {
+            try
+            {
+                var alimentacao = await _alimentacao.PegaTodasPorUsuarioAsync(id);
+                if (alimentacao == null)
+                {
+                    return null;
+                }
+                return alimentacao;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
     }
 }

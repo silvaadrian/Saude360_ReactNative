@@ -7,6 +7,7 @@ namespace Saude360.Domain.Interfaces.Servicos
 
         Task<AtividadeFisica> Cadastrar(AtividadeFisica ativFisica);
         Task<AtividadeFisica> Recuperar(int id);
-        Task<AtividadeFisica> RecuperarAtividadeUsuario(int id);    
+        Task<AtividadeFisica> RecuperarAtividadeUsuario(int id);
+        Task<AtividadeFisica[]> RecuperarTodasAtividades(int id);
     }
 }

@@ -7,10 +7,14 @@ import {
   ScrollView,
   TextInput,
   Alert,
+  FlatList,
 } from "react-native";
 import { styles } from "../../assets/css/style.cadastroAtividadesEmocao";
 import User from "../../assets/images/user.png";
 import api from "../../services/Api";
+import { StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { format } from 'date-fns-tz';
 
 export default (props) => {
   const userData = props.route.params?.userData;
@@ -18,11 +22,19 @@ export default (props) => {
   const [estadoEmocional, setEstadoEmocional] = useState('');
   const [sobreEmocoes, setSobreEmocoes] = useState('');
   const [loading, setLoading] = useState(false);
+  const [estadosEmocionais, setEstadosEmocionais] = useState(null);
 
   const recuperar = async () => {
     try {
       const response = await api.get(`/Usuario/Recuperar?id=${userData?.usuarioId}`);
       setUserDados(response.data);
+
+      const responseEstadosEmocionais = await api.get(`EstadoEmocional/RecuperarTodasEstadoEmocionalUsuario?id=${userData?.usuarioId}`);
+
+      if (responseEstadosEmocionais.status === 200) {
+        setEstadosEmocionais(responseEstadosEmocionais.data);
+      }
+
     } catch (error) {
       Alert.alert(
         'Falha ao Recuperar Usuário:',
@@ -33,8 +45,8 @@ export default (props) => {
 
   const cadastrar = async (estadoEmocional, sobreEmocoes) => {
     try {
-      let hojeDate = new Date();
-      hojeDate = hojeDate.toISOString();
+      const hojeDate = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS", { timeZone: 'America/Sao_Paulo' });
+      console.log(hojeDate);
 
       const data = {
         id: 0,
@@ -52,7 +64,7 @@ export default (props) => {
           '',
           [{
             text: 'OK',
-            onPress: () => props.navigation.navigate('TelaInicialUsuario', { userData }),
+            onPress: () => props.navigation.navigate('Inicio', { userData }),
           },
           ]
         );
@@ -97,6 +109,48 @@ export default (props) => {
     };
   }, [props.navigation, userData?.usuarioId]);
 
+
+  const stylesList = StyleSheet.create({
+    conte: {
+      flex: 1,
+      marginTop: StatusBar.currentHeight || 0,
+    },
+    item: {
+      backgroundColor: '#b0e6f6',
+      padding: 20,
+      marginVertical: 8,
+      marginHorizontal: 16,
+      borderRadius: 10,
+    },
+    title: {
+      fontSize: 16,
+    },
+  });
+
+  const EstadosEmocionais = ({ item }) => {
+
+    const formatarData = (data) => {
+      const dataObj = new Date(data);
+      const dia = String(dataObj.getDate()).padStart(2, '0');
+      const mes = String(dataObj.getMonth() + 1).padStart(2, '0');
+      const ano = dataObj.getFullYear();
+      const horas = String(dataObj.getHours()).padStart(2, '0');
+      const minutos = String(dataObj.getMinutes()).padStart(2, '0');
+      const segundos = String(dataObj.getSeconds()).padStart(2, '0');
+
+      return `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+    };
+
+    const dataReg = formatarData(item.dataCriacao);
+
+    return (
+      <View style={stylesList.item}>
+        <Text style={stylesList.title}>Estado Emocional: {item.estado}</Text>
+        <Text style={stylesList.title}>Sobre as Emoções: {item.sobreEmocoes}</Text>
+        <Text style={stylesList.title}>Data de Registro: {dataReg}</Text>
+      </View>
+    );
+  };
 
   return (
     <ScrollView>
@@ -159,6 +213,13 @@ export default (props) => {
               </TouchableOpacity>
             </View>
           </View>
+        </View>
+        <View style={stylesList.conte}>
+          <FlatList
+            data={estadosEmocionais}
+            renderItem={({ item }) => <EstadosEmocionais item={item} />}
+            keyExtractor={item => item.id}
+          />
         </View>
       </View>
     </ScrollView>

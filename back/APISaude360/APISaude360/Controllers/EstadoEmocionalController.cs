@@ -64,5 +64,21 @@ namespace APISaude360.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Estado Emocional: {ex.Message}");
             }
         }
+
+        [HttpGet("RecuperarTodasEstadoEmocionalUsuario")]
+        public async Task<IActionResult> GetTodasAtividadeUsuario(int id)
+        {
+            try
+            {
+                var modelEstadoEmocional = await _estadoEmocionalServico.RecuperarTodasAtividades(id);
+                if (modelEstadoEmocional == null) { return NoContent(); }
+
+                return Ok(modelEstadoEmocional);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Erro ao Recuperar Estado Emocional: {ex.Message}");
+            }
+        }
     }
 }

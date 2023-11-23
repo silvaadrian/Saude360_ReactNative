@@ -131,7 +131,7 @@ export default (props) => {
           <TouchableOpacity onPress={() => props.navigation.navigate("Perfil", { userDados })}>
             <Text style={styles.text} >Meu Perfil</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => props.navigation.navigate("TelaInicialUsuario", { userData: userDados })}>
+          <TouchableOpacity onPress={() => props.navigation.navigate("Inicio", { userData: userDados })}>
             <Image source={Logo_saude} />
           </TouchableOpacity>
         </View>

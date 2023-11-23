@@ -40,5 +40,16 @@ namespace Saude360.Data.Repositorios
 
             return await query.FirstOrDefaultAsync();
         }
+
+        public async Task<Alimentacao[]> PegaTodasPorUsuarioAsync(int id)
+        {
+            IQueryable<Alimentacao> query = _contexto.Alimentacaos;
+
+            query = query.AsNoTracking()
+                         .OrderByDescending(u => u.Id)
+                         .Where(u => u.UsuarioId == id);
+
+            return await query.ToArrayAsync();
+        }
     }
 }

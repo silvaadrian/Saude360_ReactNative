@@ -11,5 +11,6 @@ namespace Saude360.Domain.Interfaces.Repositorios
     {
         public Task<EstadoEmocional> PegaPorIdAsync(int id);
         public Task<EstadoEmocional> PegaPorUsuarioAsync(int id);
+        public Task<EstadoEmocional[]> PegaTodasPorUsuarioAsync(int id);
     }
 }

@@ -7,6 +7,7 @@ namespace Saude360.Domain.Interfaces.Servicos
 
         Task<Alimentacao> Cadastrar(Alimentacao alimentacao);
         Task<Alimentacao> Recuperar(int id);
-        Task<Alimentacao> RecuperarAtividadeUsuario(int id);    
+        Task<Alimentacao> RecuperarAtividadeUsuario(int id);
+        Task<Alimentacao[]> RecuperarTodasAtividades(int id);
     }
 }

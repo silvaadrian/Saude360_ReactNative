@@ -73,5 +73,23 @@ namespace Saude360.Domain.Servicos
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<EstadoEmocional[]> RecuperarTodasAtividades(int id)
+        {
+            try
+            {
+                var estadoEmocional = await _estadoEmocional.PegaTodasPorUsuarioAsync(id);
+                if (estadoEmocional == null)
+                {
+                    return null;
+                }
+                return estadoEmocional;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

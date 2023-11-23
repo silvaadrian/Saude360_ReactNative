@@ -74,5 +74,22 @@ namespace Saude360.Domain.Servicos
             }
         }
 
+        public async Task<AtividadeFisica[]> RecuperarTodasAtividades(int id)
+        {
+            try
+            {
+                var atividadeFisica = await _ativFisicaRepo.PegaTodasPorUsuarioAsync(id);
+                if (atividadeFisica == null)
+                {
+                    return null;
+                }
+                return atividadeFisica;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

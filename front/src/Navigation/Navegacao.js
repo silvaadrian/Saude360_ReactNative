@@ -58,7 +58,7 @@ const Tabs = (props) => {
       initialRouteName={TelaInicialUsuario}
     >
       <nav.Screen
-        name="TelaInicialUsuario"
+        name="Inicio"
         component={TelaInicialUsuario}
         initialParams={{ userData }}
         options={{

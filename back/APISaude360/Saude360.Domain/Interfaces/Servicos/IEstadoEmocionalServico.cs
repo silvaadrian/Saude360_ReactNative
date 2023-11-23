@@ -7,6 +7,7 @@ namespace Saude360.Domain.Interfaces.Servicos
 
         Task<EstadoEmocional> Cadastrar(EstadoEmocional estadoEmocional);
         Task<EstadoEmocional> Recuperar(int id);
-        Task<EstadoEmocional> RecuperarAtividadeUsuario(int id);    
+        Task<EstadoEmocional> RecuperarAtividadeUsuario(int id);
+        Task<EstadoEmocional[]> RecuperarTodasAtividades(int id);
     }
 }

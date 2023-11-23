@@ -40,5 +40,16 @@ namespace Saude360.Data.Repositorios
 
             return await query.FirstOrDefaultAsync();
         }
+
+        public async Task<EstadoEmocional[]> PegaTodasPorUsuarioAsync(int id)
+        {
+            IQueryable<EstadoEmocional> query = _contexto.EstadosEmocionais;
+
+            query = query.AsNoTracking()
+                         .OrderByDescending(u => u.Id)
+                         .Where(u => u.UsuarioId == id);
+
+            return await query.ToArrayAsync();
+        }
     }
 }

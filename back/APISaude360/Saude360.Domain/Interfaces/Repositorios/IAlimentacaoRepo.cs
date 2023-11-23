@@ -11,5 +11,6 @@ namespace Saude360.Domain.Interfaces.Repositorios
     {
         public Task<Alimentacao> PegaPorIdAsync(int id);
         public Task<Alimentacao> PegaPorUsuarioAsync(int id);
+        public Task<Alimentacao[]> PegaTodasPorUsuarioAsync(int id);
     }
 }

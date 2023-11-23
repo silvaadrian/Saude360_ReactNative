@@ -2784,19 +2784,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adria\\.nuget\\packages\\": {}
+    "C:\\Users\\adriansilva\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adria\\OneDrive\\Documentos\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Data\\Saude360.Data.csproj",
+      "projectUniqueName": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Data\\Saude360.Data.csproj",
       "projectName": "Saude360.Data",
-      "projectPath": "C:\\Users\\adria\\OneDrive\\Documentos\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Data\\Saude360.Data.csproj",
-      "packagesPath": "C:\\Users\\adria\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adria\\OneDrive\\Documentos\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Data\\obj\\",
+      "projectPath": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Data\\Saude360.Data.csproj",
+      "packagesPath": "C:\\Users\\adriansilva\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\adria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\adriansilva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2810,8 +2810,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\adria\\OneDrive\\Documentos\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj": {
-              "projectPath": "C:\\Users\\adria\\OneDrive\\Documentos\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj"
+            "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj": {
+              "projectPath": "C:\\Users\\adriansilva\\Documents\\GitHub\\Saude360_ReactNative\\back\\APISaude360\\Saude360.Domain\\Saude360.Domain.csproj"
             }
           }
         }
@@ -2853,8 +2853,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2863,7 +2862,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.318\\RuntimeIdentifierGraph.json"
       }
     }
   }
