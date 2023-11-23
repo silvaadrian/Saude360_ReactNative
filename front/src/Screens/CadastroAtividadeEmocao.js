@@ -46,7 +46,6 @@ export default (props) => {
   const cadastrar = async (estadoEmocional, sobreEmocoes) => {
     try {
       const hojeDate = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS", { timeZone: 'America/Sao_Paulo' });
-      console.log(hojeDate);
 
       const data = {
         id: 0,
